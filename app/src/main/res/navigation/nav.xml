@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/allTasksFragment">
+
+    <fragment
+        android:id="@+id/allTasksFragment"
+        android:name="com.example.todo.fragments.AllTasksFragment"
+        android:label="All Tasks"
+        tools:layout="@layout/fragment_all_tasks">
+        <action
+            android:id="@+id/action_allTasksFragment_to_addNewTask"
+            app:destination="@id/addNewTask"/>
+        <action
+            android:id="@+id/action_allTasksFragment_to_taskDetails"
+            app:destination="@id/taskDetails"/>
+    </fragment>
+    <fragment
+        android:id="@+id/addNewTask"
+        android:name="com.example.todo.fragments.AddNewTask"
+        android:label="Add New Task"
+        tools:layout="@layout/fragment_add_new_task" >
+        <action
+            android:id="@+id/action_addNewTask_to_allTasksFragment"
+            app:destination="@id/allTasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskDetails"
+        android:name="com.example.todo.fragments.TaskDetails"
+        android:label="Task Details"
+        tools:layout="@layout/fragment_task_details" >
+        <action
+            android:id="@+id/action_taskDetails_to_editTask"
+            app:destination="@id/editTask" />
+        <action
+            android:id="@+id/action_taskDetails_to_allTasksFragment"
+            app:destination="@id/allTasksFragment" />
+        <argument
+            android:name="ID"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/editTask"
+        android:name="com.example.todo.fragments.EditTask"
+        android:label="Edit Task"
+        tools:layout="@layout/fragment_edit_task" >
+        <action
+            android:id="@+id/action_editTask_to_taskDetails"
+            app:destination="@id/taskDetails" />
+        <argument
+            android:name="IDEdite"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_editTask_to_allTasksFragment"
+            app:destination="@id/allTasksFragment" />
+    </fragment>
+</navigation>
